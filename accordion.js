@@ -19,9 +19,13 @@ class Accordion extends HTMLElement {
         // Give class to the accordion button
         button.className = 'accordion';
 
+        // Listen to button click
         button.addEventListener('click', () => {
+
+            // Toggle active class
             button.classList.toggle('active');
 
+            // Toggle max height of the accordion parent
             panel.style.maxHeight = panel.style.maxHeight == '0px' ? panel.scrollHeight + 'px' : '0px';
         });
 

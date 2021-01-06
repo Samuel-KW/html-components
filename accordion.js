@@ -29,8 +29,13 @@ class Accordion extends HTMLElement {
             panel.style.maxHeight = panel.style.maxHeight == '0px' ? panel.scrollHeight + 'px' : '0px';
         });
 
+        // Create panel container
         const panel = document.createElement('div');
+
+        // Apply default styles to the panel
         panel.style = 'color: #000; padding: 0 18px; background-color: #e4e4e4; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; box-sizing: border-box;';
+        
+        // Give class to panel container
         panel.className = 'panel';
 
         while (this.childNodes.length) { panel.appendChild(this.firstChild); }

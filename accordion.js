@@ -12,8 +12,14 @@ class Accordion extends HTMLElement {
         button.textContent = this.getAttribute('value') ?? '';
         button.className = 'accordion';
 
+        button.addEventListener('click', () => {
+            button.classList.toggle('active');
+
+            panel.style.maxHeight = panel.style.maxHeight == '0px' ? panel.scrollHeight + 'px' : '0px';
+        });
+
         const panel = document.createElement('div');
-        panel.style = 'color: #000; padding: 0 18px; background-color: white; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; box-sizing: border-box;';
+        panel.style = 'color: #000; padding: 0 18px; background-color: #e4e4e4; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; box-sizing: border-box;';
         panel.className = 'panel';
 
         while (this.childNodes.length) { panel.appendChild(this.firstChild); }

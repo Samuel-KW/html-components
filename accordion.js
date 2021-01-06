@@ -38,11 +38,14 @@ class Accordion extends HTMLElement {
         // Give class to panel container
         panel.className = 'panel';
 
+        // Move elements into panel container
         while (this.childNodes.length) { panel.appendChild(this.firstChild); }
 
+        // Add button and panel to accordion element
         this.appendChild(button);
         this.appendChild(panel);
     }
 }
 
+// Define the custom accordion element
 customElements.define('accordion-parent', Accordion);

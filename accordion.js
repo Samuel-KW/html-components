@@ -15,6 +15,8 @@ class Accordion extends HTMLElement {
         
         // Assign content to button if supplied
         button.textContent = this.getAttribute('value') ?? '';
+
+        // Give class to the accordion button
         button.className = 'accordion';
 
         button.addEventListener('click', () => {

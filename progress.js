@@ -57,5 +57,5 @@ class Progress extends HTMLElement {
     }
 }
 
-// Define the custom accordion element
+// Define the custom progress element
 customElements.define('ds-progress', Progress);

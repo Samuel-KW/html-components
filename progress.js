@@ -1,4 +1,4 @@
-class Accordion extends HTMLElement {
+class Progress extends HTMLElement {
     constructor() {
 
         // Always call super first in constructor
@@ -11,4 +11,4 @@ class Accordion extends HTMLElement {
 }
 
 // Define the custom accordion element
-customElements.define('ds-progress', Accordion);
+customElements.define('ds-progress', Progress);

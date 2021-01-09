@@ -8,7 +8,7 @@ class Progress extends HTMLElement {
     connectedCallback() {
 
         let parent = document.createElement('div');
-        parent.style = 'background-color: #eee; height: 25px; min-width: 100px; width: auto; border: 1px solid #000;';
+        parent.style = 'margin-top: 5px; background-color: #eee; height: 25px; min-width: 100px; width: auto;';
 
         let child = document.createElement('div');
         child.style = 'height: 25px; width: 0px; background-color: #b43bff; margin: 0; padding: 0;';
@@ -47,7 +47,7 @@ class Progress extends HTMLElement {
     }
 
     attributeChangedCallback(name, old_value, new_value) {
-        console.log(name, new_value);
+        console.log(name, old_value, new_value);
     }
 }
 

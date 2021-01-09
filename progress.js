@@ -7,6 +7,37 @@ class Progress extends HTMLElement {
 
     connectedCallback() {
 
+
+        let child = document.createElement('div');
+
+    }
+
+    update() {
+        
+    }
+
+    get value() {
+        return Number(this.getAttribute('value'));
+    }
+
+    set value(val) {
+        return this.setAttribute('value', val);
+    }
+
+    get initial() {
+        return Number(this.getAttribute('initial'));
+    }
+
+    set initial(val) {
+        return this.setAttribute('initial', val);
+    }
+
+    get final() {
+        return Number(this.getAttribute('final'));
+    }
+
+    set final(val) {
+        return this.setAttribute('final', val);
     }
 }
 

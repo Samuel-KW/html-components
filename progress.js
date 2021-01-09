@@ -7,13 +7,19 @@ class Progress extends HTMLElement {
 
     connectedCallback() {
 
+        let parent = document.createElement('div');
+        parent.style = 'background-color: #eee; height: 25px; min-width: 100px; width: auto; border: 1px solid #000;';
 
         let child = document.createElement('div');
+        child.style = 'height: 25px; width: 0px; background-color: #b43bff; margin: 0; padding: 0;';
+
+        child.appendChild(parent);
+        this.appendChild(parent);
 
     }
 
-    update() {
-        
+    static get observedAttributes() {
+        return ['value', 'initial', 'final'];
     }
 
     get value() {
@@ -38,6 +44,10 @@ class Progress extends HTMLElement {
 
     set final(val) {
         return this.setAttribute('final', val);
+    }
+
+    attributeChangedCallback(name, old_value, new_value) {
+        console.log(name, new_value);
     }
 }
 

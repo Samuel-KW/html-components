@@ -11,7 +11,7 @@ class Accordion extends HTMLElement {
         const button = document.createElement('button');
 
         // Apply default styles to the button
-        button.style = 'background-color: #eee; color: #000; font-size: 40px; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 15px; transition: 0.4s; box-sizing: border-box;';
+        button.style = 'margin-top: 5px; background-color: #eee; color: #000; font-size: 40px; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 15px; transition: 0.4s; box-sizing: border-box;';
         
         // Assign content to button if supplied
         button.textContent = this.getAttribute('value') ?? '';

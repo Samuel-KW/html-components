@@ -48,4 +48,4 @@ class Accordion extends HTMLElement {
 }
 
 // Define the custom accordion element
-customElements.define('accordion-parent', Accordion);
+customElements.define('ds-accordion', Accordion);

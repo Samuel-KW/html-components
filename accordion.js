@@ -3,47 +3,57 @@ class Accordion extends HTMLElement {
 
         // Always call super first in constructor
         super();
+
+        // Create the accordion button
+        this.button = document.createElement('button');
+
+        // Create panel container
+        this.panel = document.createElement('div');
+    }
+
+    get value() {
+        return this.getAttribute('value');
+    }
+
+    set value(val) {
+        this.button.textContent = val;
+        return this.setAttribute('value', val);
     }
 
     connectedCallback() {
 
-        // Create the accordion button
-        const button = document.createElement('button');
-
         // Apply default styles to the button
-        button.style = 'margin-top: 5px; background-color: #eee; color: #000; font-size: 40px; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 15px; transition: 0.4s; box-sizing: border-box;';
+        this.button.style = 'margin-top: 5px; background-color: #eee; color: #000; font-size: 40px; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 15px; transition: 0.4s; box-sizing: border-box;';
         
         // Assign content to button if supplied
-        button.textContent = this.getAttribute('value') ?? '';
+        this.button.textContent = this.getAttribute('value') ?? '';
 
         // Give class to the accordion button
-        button.className = 'accordion';
+        this.button.className = 'accordion';
 
         // Listen to button click
-        button.addEventListener('click', () => {
+        this.button.addEventListener('click', () => {
 
             // Toggle active class
-            button.classList.toggle('active');
+            this.button.classList.toggle('active');
 
             // Toggle max height of the accordion parent
-            panel.style.maxHeight = panel.style.maxHeight == '0px' ? panel.scrollHeight + 'px' : '0px';
+            this.panel.style.maxHeight = this.panel.style.maxHeight == '0px' ? this.panel.scrollHeight + 'px' : '0px';
         });
 
-        // Create panel container
-        const panel = document.createElement('div');
 
         // Apply default styles to the panel
-        panel.style = 'color: #000; padding: 0 18px; background-color: #e4e4e4; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; box-sizing: border-box;';
+        this.panel.style = 'color: #000; padding: 0 18px; background-color: #e4e4e4; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; box-sizing: border-box;';
         
         // Give class to panel container
-        panel.className = 'panel';
+        this.panel.className = 'panel';
 
         // Move elements into panel container
-        while (this.childNodes.length) { panel.appendChild(this.firstChild); }
+        while (this.childNodes.length) { this.panel.appendChild(this.firstChild); }
 
         // Add button and panel to accordion element
-        this.appendChild(button);
-        this.appendChild(panel);
+        this.appendChild(this.button);
+        this.appendChild(this.panel);
     }
 }
 

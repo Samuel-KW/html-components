@@ -5,7 +5,6 @@ class Progress extends HTMLElement {
         super();
 
         this.parent = document.createElement('div');
-
         this.child = document.createElement('div');        
     }
 
@@ -56,7 +55,6 @@ class Progress extends HTMLElement {
 
         this.child.style.width = width >= 0 ? width + '%' : 0;
     }
-
 }
 
 // Define the custom accordion element

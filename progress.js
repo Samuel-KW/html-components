@@ -3,19 +3,21 @@ class Progress extends HTMLElement {
 
         // Always call super first in constructor
         super();
+
+        this.parent = document.createElement('div');
+
+        this.child = document.createElement('div');        
     }
 
     connectedCallback() {
 
-        let parent = document.createElement('div');
-        parent.style = 'margin-top: 5px; background-color: #eee; height: 25px; min-width: 100px; width: auto;';
+        this.parent.style = 'margin-top: 5px; background-color: #eee; height: 25px; min-width: 100px; width: auto;';
+        this.child.style = 'transition: width 1s ease; height: 25px; background-color: #b43bff; margin: 0; padding: 0;';
 
-        let child = document.createElement('div');
-        child.style = 'height: 25px; width: 0px; background-color: #b43bff; margin: 0; padding: 0;';
+        this.attributeChangedCallback();
 
-        child.appendChild(parent);
-        this.appendChild(parent);
-
+        this.parent.appendChild(this.child);
+        this.appendChild(this.parent);
     }
 
     static get observedAttributes() {
@@ -46,9 +48,15 @@ class Progress extends HTMLElement {
         return this.setAttribute('final', val);
     }
 
-    attributeChangedCallback(name, old_value, new_value) {
-        console.log(name, old_value, new_value);
+    attributeChangedCallback () {
+        let initial = this.initial,
+            final = this.final - initial,
+            value = this.value - initial,
+            width = (100 / final) * value;
+
+        this.child.style.width = width >= 0 ? width + '%' : 0;
     }
+
 }
 
 // Define the custom accordion element

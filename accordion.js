@@ -1,6 +1,6 @@
 (() => {
     let elem = document.createElement('style');
-    elem.textContent = `ds-accordion button {
+    elem.textContent = `ds-accordion > button {
     margin-top: 5px;
     background-color: #eee;
     color: #000;
@@ -16,7 +16,7 @@
     box-sizing: border-box;
 }
 
-ds-accordion div {
+ds-accordion > div {
     color: #000;
     padding: 0 18px;
     background-color: #e4e4e4;

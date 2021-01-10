@@ -1,6 +1,6 @@
 (() => {
     let elem = document.createElement('style');
-    elem.textContent = `ds-progress div {
+    elem.textContent = `ds-progress > div {
     background-color: #eee;
     min-width: 100px;
     margin-top: 5px;
